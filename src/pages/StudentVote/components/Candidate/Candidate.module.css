@@ -1,0 +1,28 @@
+.container {
+  margin: auto 1em;
+  text-align: center;
+  width: 260px;
+}
+
+.image_container {
+  height: 315px;
+  width: inherit;
+}
+
+.candidate_name {
+  /* text-transform: capitalize; */
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.party_name {
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 425px) {
+  .container {
+    margin: auto;
+    margin-bottom: 3em;
+  }
+}

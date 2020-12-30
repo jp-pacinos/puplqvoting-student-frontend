@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* color: #3e3e3e; */
+  background-color: rgba(252, 252, 252, 1);
+  font-family: 'Open Sans', Segoe UI, sans-serif;
+  font-size: 16px;
+}

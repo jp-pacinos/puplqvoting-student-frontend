@@ -1,0 +1,20 @@
+.subtitle_box {
+  margin-bottom: 1.6em;
+}
+
+.subtitle_box .subtitle {
+  border-bottom: 3px solid #dc3545;
+  margin-bottom: 1em;
+}
+
+.subtitle_box p {
+  font-weight: 500;
+}
+
+.content {
+  margin-bottom: 1.2em;
+}
+
+.content p {
+  margin-bottom: 1em;
+}
