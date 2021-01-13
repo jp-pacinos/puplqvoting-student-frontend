@@ -84,14 +84,11 @@ const StudentVotingRoute: React.FC<CustomRouteProps> = (props) => {
  * by email validation route
  */
 const StudentVerifyEmailRoute: React.FC<CustomRouteProps> = (props) => {
-  const token = useSelector(selectAuthToken)
   const isVoted = useSelector(selectIsUserVoted)
-
-  const alreadyVoted = isVoted && Boolean(token)
 
   return (
     <GuardRoute
-      guard={alreadyVoted}
+      guard={isVoted}
       guestRedirectTo="/vote"
       component={StudentVoteEmailVerify}
       {...props}

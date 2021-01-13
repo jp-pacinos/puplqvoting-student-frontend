@@ -7,6 +7,7 @@ import {
   selectVotingPositionEntities,
   useDispatch,
   votingSnackbarOpen as snackbarOpen,
+  votingSnackbarClose as snackbarClose,
 } from 'store'
 import { Button } from 'components/Core'
 
@@ -76,6 +77,7 @@ const ButtonSubmitVote: React.FC<Props> = ({ onSubmitSuccess: submitSuccess }) =
     try {
       const response = await storeUserVote({ votes })
       submitSuccess(response.data)
+      dispatch(snackbarClose())
       return
     } catch (e) {
       let errMessage = 'Something went wrong. Please refresh the page and try again.'
