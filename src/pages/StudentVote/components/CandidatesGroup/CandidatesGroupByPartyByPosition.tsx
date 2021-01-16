@@ -58,7 +58,7 @@ const CandidatesGroupByPartyByPosition: React.FC<Props> = ({ partyId, positionId
   )
 
   return useMemo(() => {
-    if (candidatesIds.length === 1) {
+    if (candidatesIds && candidatesIds.length === 1) {
       return (
         <Candidate
           key={candidatesIds[0]}
@@ -72,13 +72,14 @@ const CandidatesGroupByPartyByPosition: React.FC<Props> = ({ partyId, positionId
     // just wrap the Candidate with <div></div>
     return (
       <div>
-        {candidatesIds.map((id) => {
-          return (
-            <div key={id} style={{ marginBottom: '2em' }}>
-              <Candidate candidateId={id} onSelect={onCandidateSelected} />
-            </div>
-          )
-        })}
+        {candidatesIds &&
+          candidatesIds.map((id) => {
+            return (
+              <div key={id} style={{ marginBottom: '2em' }}>
+                <Candidate candidateId={id} onSelect={onCandidateSelected} />
+              </div>
+            )
+          })}
       </div>
     )
   }, [candidatesIds, onCandidateSelected])
