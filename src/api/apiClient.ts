@@ -11,7 +11,7 @@ const apiClient = axios.create({
   },
 })
 
-const authToken = localStorage.getItem('auth-token') || null
+const authToken = sessionStorage.getItem('auth-token') || null
 if (authToken) {
   apiClient.defaults.headers.common['Authorization'] = `Bearer ${authToken}`
 }
