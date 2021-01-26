@@ -16,6 +16,8 @@ const StudentAuth: React.FC<{}> = () => {
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
+  const [registrationUrl, setRegistrationUrl] = useState('')
+
   const dispatch = useDispatch()
 
   const handleFormChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +32,7 @@ const StudentAuth: React.FC<{}> = () => {
 
     setLoading(true)
     setErrorMessage('')
+    setRegistrationUrl('')
 
     try {
       const response = await Auth.login({ user: form })
@@ -48,6 +51,10 @@ const StudentAuth: React.FC<{}> = () => {
 
         if (allowed) {
           errMessage = e.response.data.message
+        }
+
+        if (e.response.data.registration_url) {
+          setRegistrationUrl(e.response.data.registration_url)
         }
       }
 
@@ -119,7 +126,16 @@ const StudentAuth: React.FC<{}> = () => {
             />
           </div>
 
-          {!loading && errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+          {!loading && errorMessage && (
+            <p>
+              <span style={{ color: 'red' }}>{errorMessage}</span>{' '}
+              {registrationUrl.length > 0 && (
+                <a href={registrationUrl} target="_blank" rel="noreferrer">
+                  Please click here to register.
+                </a>
+              )}
+            </p>
+          )}
 
           <Spacer level={2} />
 

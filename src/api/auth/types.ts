@@ -9,7 +9,8 @@ export declare namespace Response {
   }
 
   export namespace Fail {
-    export interface login extends AxiosError<{ message: string }> {}
+    export interface login
+      extends AxiosError<{ message: string; registration_url?: string }> {}
   }
 }
 
