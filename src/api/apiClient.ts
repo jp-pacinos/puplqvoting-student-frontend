@@ -1,16 +1,17 @@
 import axios from 'axios'
 
-const baseURL = 'http://127.0.0.1:8000/api' // separate
-// const baseURL = '/api' // in server
+export const baseURL = process.env.REACT_APP_API_BASE_URL || ''
+export const prefix = process.env.REACT_APP_API_PREFIX || ''
 
 const apiClient = axios.create({
-  baseURL: baseURL,
+  baseURL: `${baseURL}${prefix.indexOf('/') === 0 ? prefix : `/${prefix}`}`,
+  withCredentials: true,
   headers: {
     Accept: 'application/json',
   },
 })
 
-const authToken = sessionStorage.getItem('auth-token')
+const authToken = localStorage.getItem('auth-token') || null
 if (authToken) {
   apiClient.defaults.headers.common['Authorization'] = `Bearer ${authToken}`
 }
