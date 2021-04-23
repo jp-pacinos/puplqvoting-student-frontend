@@ -2,6 +2,8 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
+import LinkToAdmin from 'components/LinkToAdmin'
+
 import useAppReset from './useAppReset'
 import Home from './Home'
 
@@ -19,6 +21,8 @@ const HomeMain: React.FC<Props> = () => {
       </Helmet>
 
       <Home />
+
+      <LinkToAdmin />
     </>
   )
 }
