@@ -1,6 +1,7 @@
 {
   "name": "puplopez-voting-student-frontend",
   "version": "0.1.2",
+  "homepage": "/student",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",

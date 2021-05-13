@@ -18,7 +18,7 @@ const AppMain = () => (
       />
 
       <StoreProvider>
-        <Router>
+        <Router basename="/student">
           <ScrollToTop />
           <App />
         </Router>
